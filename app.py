@@ -1,5 +1,8 @@
 import os
 
+restaurantes = ['sushi']
+
+# funções do menu principal
 def exibir_nome_app():
     print('''
 
@@ -16,19 +19,46 @@ def exibir_opcoes():
     print('3. Ativar Restaurante')
     print('4. Sair\n')
 def finalizar_app():
-    os.system('cls')
-    print('finalizando programa!!!')  
+    subtitulo_menu_opcao('Finalizando app!')
+def opcao_invalida():
+   print('opcâo inválida!!!')
+   voltar_menu_principal()
 def avaliar_opcao_escolhida():
-    opcao_escolhida = int(input('Escolha uma Opção: '))
-    if opcao_escolhida == 1:
-        print('Cadastrar seu restaurante')
-    elif opcao_escolhida == 2:
-        print('lista restaurantes')
-    elif opcao_escolhida == 3:
-        print('ativar restaurante')
-    else:
-        finalizar_app()
-def  main():
+    try:
+        opcao_escolhida = int(input('Escolha uma Opção: '))
+        if opcao_escolhida == 1:
+            cadastrar_restaurantes()
+        elif opcao_escolhida == 2:
+            listar_restaurantes()
+        elif opcao_escolhida == 3:
+            print('ativar restaurante')
+        elif opcao_escolhida == 4:
+            finalizar_app()
+        else:
+            opcao_invalida()
+    except:
+        opcao_invalida() 
+def voltar_menu_principal():
+    input('\nDigite alguma tecla para voltar ao menu principal: ')
+    main()
+def subtitulo_menu_opcao(texto):
+    os.system('cls')
+    print(f"{texto}\n")
+# funcões de avaliação das opções escolhidas
+def cadastrar_restaurantes():
+    subtitulo_menu_opcao('Cadastro oficial de novos retaurantes:')
+    nome_restaurante_da_vez = str(input('Qual o nome do resturante que desejas cadastrar? '))
+    restaurantes.append(nome_restaurante_da_vez)
+    print(f'Restaurante {nome_restaurante_da_vez} casdastrado com sucesso!\n')
+    voltar_menu_principal()
+def listar_restaurantes():
+    subtitulo_menu_opcao('Listagem oficial de retaurantes:')
+    for restaurante in restaurantes:
+        print(f'.{restaurante}')
+    voltar_menu_principal()
+
+def main():
+    os.system('cls')
     exibir_nome_app()
     exibir_opcoes()  
     avaliar_opcao_escolhida()
