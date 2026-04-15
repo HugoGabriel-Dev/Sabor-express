@@ -1,6 +1,9 @@
 import os
 
-restaurantes = ['sushi']
+restaurantes = [
+    { 'nome': 'Hugo', 'categoria': 'pizza', 'ativo': False},
+    { 'nome': 'alan', 'categoria': 'hamburguer', 'ativo': True}
+]
 
 # funções do menu principal
 def exibir_nome_app():
@@ -48,13 +51,18 @@ def subtitulo_menu_opcao(texto):
 def cadastrar_restaurantes():
     subtitulo_menu_opcao('Cadastro oficial de novos retaurantes:')
     nome_restaurante_da_vez = str(input('Qual o nome do resturante que desejas cadastrar? '))
-    restaurantes.append(nome_restaurante_da_vez)
-    print(f'Restaurante {nome_restaurante_da_vez} casdastrado com sucesso!\n')
+    categoria_do_restaurante = str(input(f'Qual a categoria do restaurante {nome_restaurante_da_vez}? '))
+    dados_do_restaurante = {'nome': nome_restaurante_da_vez, 'categoria': categoria_do_restaurante, 'ativo': False}
+    restaurantes.append(dados_do_restaurante)
+    print(f'O restaurante: {nome_restaurante_da_vez} | categoria: {categoria_do_restaurante} foi cadastrado com sucesso!')
     voltar_menu_principal()
 def listar_restaurantes():
     subtitulo_menu_opcao('Listagem oficial de retaurantes:')
     for restaurante in restaurantes:
-        print(f'.{restaurante}')
+        nome = restaurante['nome']
+        categoria = restaurante['categoria']
+        ativo = restaurante['ativo']
+        print(f'- {nome} | {categoria} | {ativo}')
     voltar_menu_principal()
 
 def main():
