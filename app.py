@@ -54,7 +54,7 @@ def cadastrar_restaurantes():
     categoria_do_restaurante = str(input(f'Qual a categoria do restaurante {nome_restaurante_da_vez}? '))
     dados_do_restaurante = {'nome': nome_restaurante_da_vez, 'categoria': categoria_do_restaurante, 'ativo': False}
     restaurantes.append(dados_do_restaurante)
-    print(f'O restaurante: {nome_restaurante_da_vez} | categoria: {categoria_do_restaurante} foi cadastrado com sucesso!')
+    print(f'| O restaurante: {nome_restaurante_da_vez} | categoria: {categoria_do_restaurante} | foi cadastrado com sucesso!')
     voltar_menu_principal()
 def listar_restaurantes():
     subtitulo_menu_opcao('Listagem oficial de retaurantes:')
