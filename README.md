@@ -12,7 +12,6 @@ Este repositório apresenta o **Sabor Express**, uma aplicação de gerenciament
 Este projeto tem como finalidade:
 
 - 💻 Praticar o desenvolvimento de aplicações Back-end com Python  
-- 🏗️ Implementar os pilares da Programação Orientada a Objetos (POO)  
 - 🍽️ Criar um sistema funcional de cadastro e avaliação de restaurantes  
 - ⚙️ Aplicar lógica de negócios e manipulação de dados  
 - 🚀 Demonstrar evolução prática no desenvolvimento Back-end  
